@@ -1,537 +1,608 @@
-
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-							<style>
-								body {
-									background-color: white; /* Ensure the iframe has a white background */
-								}
-
-								
-							</style>
-                        </head>
-                        <body>
-                            <!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Freshia Assessee Number Finder</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            body {
+                background-color: white; /* Ensure the iframe has a white background */
+            }
+        </style>
+    </head>
+    <body>
+        <!doctype html>
+        <html lang="en">
+            <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <title>Freshia Assessee Number Finder</title>
 
-<link rel="icon" type="image/png" href="search.png">
-<link rel="shortcut icon" type="image/png" href="search.png">
+                <link rel="icon" type="image/png" sizes="512x512" href="search.png?v=2" />
+                <link rel="shortcut icon" type="image/png" sizes="512x512" href="favicon.ico?v=2" />
+                <link rel="apple-touch-icon" sizes="512x512" href="search.png?v=2" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
+                    rel="stylesheet"
+                />
 
-<style>
-  :root {
-    --cds-background: #f4f4f4;
-    --cds-layer: #ffffff;
-    --cds-layer-hover: #e8e8e8;
-    --cds-border-subtle: #e0e0e0;
-    --cds-border-strong: #8d8d8d;
-    --cds-text-primary: #161616;
-    --cds-text-secondary: #525252;
-    --cds-text-placeholder: #a8a8a8;
-    --cds-link-primary: #0f62fe;
-    --cds-button-primary: #0f62fe;
-    --cds-button-primary-hover: #0043ce;
-    --cds-button-primary-active: #002d9c;
-    --cds-support-error: #da1e28;
-    --cds-support-error-bg: #fff1f1;
-    --cds-support-success: #198038;
-    --cds-support-success-bg: #defbe6;
-    --cds-support-info: #0043ce;
-    --cds-support-info-bg: #edf5ff;
-    --cds-support-warning-bg: #fdf6dd;
-    --cds-support-warning-text: #684e00;
-    --cds-focus: #0f62fe;
-    --cds-purple-10: #f6f2ff;
-    --cds-purple-20: #e8daff;
-    --cds-purple-60: #6929c4;
-    --cds-purple-70: #491d8b;
-  }
+                <style>
+                    :root {
+                        --cds-background: #f4f4f4;
+                        --cds-layer: #ffffff;
+                        --cds-layer-hover: #e8e8e8;
+                        --cds-border-subtle: #e0e0e0;
+                        --cds-border-strong: #8d8d8d;
+                        --cds-text-primary: #161616;
+                        --cds-text-secondary: #525252;
+                        --cds-text-placeholder: #a8a8a8;
+                        --cds-link-primary: #0f62fe;
+                        --cds-button-primary: #0f62fe;
+                        --cds-button-primary-hover: #0043ce;
+                        --cds-button-primary-active: #002d9c;
+                        --cds-support-error: #da1e28;
+                        --cds-support-error-bg: #fff1f1;
+                        --cds-support-success: #198038;
+                        --cds-support-success-bg: #defbe6;
+                        --cds-support-info: #0043ce;
+                        --cds-support-info-bg: #edf5ff;
+                        --cds-support-warning-bg: #fdf6dd;
+                        --cds-support-warning-text: #684e00;
+                        --cds-focus: #0f62fe;
+                        --cds-purple-10: #f6f2ff;
+                        --cds-purple-20: #e8daff;
+                        --cds-purple-60: #6929c4;
+                        --cds-purple-70: #491d8b;
+                    }
 
-  * { box-sizing: border-box; }
+                    * {
+                        box-sizing: border-box;
+                    }
 
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: var(--cds-background);
-    color: var(--cds-text-primary);
-    font-family: 'IBM Plex Sans', system-ui, sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
+                    html,
+                    body {
+                        margin: 0;
+                        padding: 0;
+                        background: var(--cds-background);
+                        color: var(--cds-text-primary);
+                        font-family: "IBM Plex Sans", system-ui, sans-serif;
+                        -webkit-font-smoothing: antialiased;
+                    }
 
-  .shell {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 16px;
-  }
+                    .shell {
+                        max-width: 720px;
+                        margin: 0 auto;
+                        padding: 16px;
+                    }
 
-  /* ---------- Disclaimer banner ---------- */
-  .disclaimer {
-    background: var(--cds-support-warning-bg);
-    border-left: 4px solid #f1c21b;
-    padding: 16px;
-    margin-bottom: 24px;
-    font-size: 14px;
-    line-height: 20px;
-    color: var(--cds-support-warning-text);
-  }
-  .disclaimer strong { display: block; margin-bottom: 4px; font-size: 14px; }
+                    /* ---------- Disclaimer banner ---------- */
+                    .disclaimer {
+                        background: var(--cds-support-warning-bg);
+                        border-left: 4px solid #f1c21b;
+                        padding: 16px;
+                        margin-bottom: 24px;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: var(--cds-support-warning-text);
+                    }
+                    .disclaimer strong {
+                        display: block;
+                        margin-bottom: 4px;
+                        font-size: 14px;
+                    }
 
-  /* ---------- Header ---------- */
-  .app-header { margin-bottom: 24px; }
-  .app-header h1 {
-    font-size: 28px;
-    line-height: 36px;
-    font-weight: 600;
-    margin: 0 0 8px 0;
-  }
-  .app-header p {
-    font-size: 16px;
-    line-height: 24px;
-    color: var(--cds-text-secondary);
-    margin: 0;
-  }
+                    /* ---------- Header ---------- */
+                    .app-header {
+                        margin-bottom: 24px;
+                    }
+                    .app-header h1 {
+                        font-size: 28px;
+                        line-height: 36px;
+                        font-weight: 600;
+                        margin: 0 0 8px 0;
+                    }
+                    .app-header p {
+                        font-size: 16px;
+                        line-height: 24px;
+                        color: var(--cds-text-secondary);
+                        margin: 0;
+                    }
 
-  /* ---------- Cards / Tiles ---------- */
-  .tile {
-    background: var(--cds-layer);
-    border: 1px solid var(--cds-border-subtle);
-    padding: 24px;
-    margin-bottom: 16px;
-  }
+                    /* ---------- Cards / Tiles ---------- */
+                    .tile {
+                        background: var(--cds-layer);
+                        border: 1px solid var(--cds-border-subtle);
+                        padding: 24px;
+                        margin-bottom: 16px;
+                    }
 
-  /* ---------- Form elements ---------- */
-  label.cds-label {
-    display: block;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 400;
-    color: var(--cds-text-secondary);
-    margin-bottom: 8px;
-  }
+                    /* ---------- Form elements ---------- */
+                    label.cds-label {
+                        display: block;
+                        font-size: 12px;
+                        line-height: 16px;
+                        font-weight: 400;
+                        color: var(--cds-text-secondary);
+                        margin-bottom: 8px;
+                    }
 
-  input[type="text"] {
-    width: 100%;
-    height: 48px;
-    background: #f4f4f4;
-    border: none;
-    border-bottom: 1px solid var(--cds-border-strong);
-    color: var(--cds-text-primary);
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 14px;
-    padding: 0 16px;
-    outline: none;
-    transition: outline 70ms ease;
-  }
-  input[type="text"]::placeholder { color: var(--cds-text-placeholder); }
-  input[type="text"]:focus {
-    outline: 2px solid var(--cds-focus);
-    outline-offset: -2px;
-  }
-  input[type="text"].error {
-    outline: 2px solid var(--cds-support-error);
-    outline-offset: -2px;
-  }
+                    input[type="text"] {
+                        width: 100%;
+                        height: 48px;
+                        background: #f4f4f4;
+                        border: none;
+                        border-bottom: 1px solid var(--cds-border-strong);
+                        color: var(--cds-text-primary);
+                        font-family: "IBM Plex Sans", sans-serif;
+                        font-size: 14px;
+                        padding: 0 16px;
+                        outline: none;
+                        transition: outline 70ms ease;
+                    }
+                    input[type="text"]::placeholder {
+                        color: var(--cds-text-placeholder);
+                    }
+                    input[type="text"]:focus {
+                        outline: 2px solid var(--cds-focus);
+                        outline-offset: -2px;
+                    }
+                    input[type="text"].error {
+                        outline: 2px solid var(--cds-support-error);
+                        outline-offset: -2px;
+                    }
 
-  .field-error {
-    color: var(--cds-support-error);
-    font-size: 12px;
-    margin-top: 6px;
-    display: none;
-  }
-  .field-error.show { display: block; }
+                    .field-error {
+                        color: var(--cds-support-error);
+                        font-size: 12px;
+                        margin-top: 6px;
+                        display: none;
+                    }
+                    .field-error.show {
+                        display: block;
+                    }
 
-  /* ---------- Buttons ---------- */
-  button.cds-btn {
-    height: 48px;
-    padding: 0 16px;
-    background: var(--cds-button-primary);
-    color: #ffffff;
-    border: none;
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    cursor: pointer;
-    width: 100%;
-    margin-top: 16px;
-    transition: background 70ms ease;
-  }
-  button.cds-btn:hover { background: var(--cds-button-primary-hover); }
-  button.cds-btn:active { background: var(--cds-button-primary-active); }
-  button.cds-btn:disabled {
-    background: #c6c6c6;
-    color: #8d8d8d;
-    cursor: not-allowed;
-  }
+                    /* ---------- Buttons ---------- */
+                    button.cds-btn {
+                        height: 48px;
+                        padding: 0 16px;
+                        background: var(--cds-button-primary);
+                        color: #ffffff;
+                        border: none;
+                        font-family: "IBM Plex Sans", sans-serif;
+                        font-size: 14px;
+                        font-weight: 400;
+                        cursor: pointer;
+                        width: 100%;
+                        margin-top: 16px;
+                        transition: background 70ms ease;
+                    }
+                    button.cds-btn:hover {
+                        background: var(--cds-button-primary-hover);
+                    }
+                    button.cds-btn:active {
+                        background: var(--cds-button-primary-active);
+                    }
+                    button.cds-btn:disabled {
+                        background: #c6c6c6;
+                        color: #8d8d8d;
+                        cursor: not-allowed;
+                    }
 
-  .hidden { display: none !important; }
+                    .hidden {
+                        display: none !important;
+                    }
 
-  /* ---------- Recent searches ---------- */
-  .recent-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-  .recent-tag {
-    background: var(--cds-purple-10);
-    color: var(--cds-purple-60);
-    font-weight: 600;
-    font-size: 12px;
-    padding: 8px 14px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-  .recent-pill {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    background: var(--cds-purple-10);
-    color: var(--cds-purple-60);
-    border-radius: 999px;
-    padding: 6px 8px 6px 14px;
-    font-size: 13px;
-  }
-  .recent-pill.pinned {
-    background: var(--cds-purple-20);
-  }
-  .recent-pill-main {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    cursor: pointer;
-    max-width: 200px;
-  }
-  .pill-icon { flex-shrink: 0; }
-  .pill-text {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-weight: 500;
-  }
-  .pill-divider {
-    width: 1px;
-    height: 16px;
-    background: #d0bfff;
-    flex-shrink: 0;
-  }
-  .pill-btn {
-    background: transparent;
-    border: none;
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    color: var(--cds-purple-60);
-    border-radius: 4px;
-    flex-shrink: 0;
-  }
-  .pill-btn:hover { background: var(--cds-purple-20); }
-  .recent-pill.pinned .pin-btn { color: var(--cds-purple-70); }
+                    /* ---------- Recent searches ---------- */
+                    .recent-wrap {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: 8px;
+                        align-items: center;
+                        margin-bottom: 16px;
+                    }
+                    .recent-tag {
+                        background: var(--cds-purple-10);
+                        color: var(--cds-purple-60);
+                        font-weight: 600;
+                        font-size: 12px;
+                        padding: 8px 14px;
+                        border-radius: 999px;
+                        white-space: nowrap;
+                    }
+                    .recent-pill {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        background: var(--cds-purple-10);
+                        color: var(--cds-purple-60);
+                        border-radius: 999px;
+                        padding: 6px 8px 6px 14px;
+                        font-size: 13px;
+                    }
+                    .recent-pill.pinned {
+                        background: var(--cds-purple-20);
+                    }
+                    .recent-pill-main {
+                        display: flex;
+                        align-items: center;
+                        gap: 6px;
+                        cursor: pointer;
+                        max-width: 200px;
+                    }
+                    .pill-icon {
+                        flex-shrink: 0;
+                    }
+                    .pill-text {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        font-weight: 500;
+                    }
+                    .pill-divider {
+                        width: 1px;
+                        height: 16px;
+                        background: #d0bfff;
+                        flex-shrink: 0;
+                    }
+                    .pill-btn {
+                        background: transparent;
+                        border: none;
+                        padding: 6px;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        color: var(--cds-purple-60);
+                        border-radius: 4px;
+                        flex-shrink: 0;
+                    }
+                    /* ADD THIS — pin icon always red, regardless of pinned state */
+                    .pin-btn {
+                        color: var(--cds-support-error);
+                    }
+                    .pin-btn:hover {
+                        background: var(--cds-support-error-bg);
+                    }
+                    /* ---------- Skeleton loader ---------- */
+                    .skeleton-row {
+                        height: 16px;
+                        background: linear-gradient(90deg, #e0e0e0 25%, #ececec 37%, #e0e0e0 63%);
+                        background-size: 400% 100%;
+                        animation: skeleton-loading 1.4s ease infinite;
+                        margin-bottom: 12px;
+                        border-radius: 2px;
+                    }
+                    @keyframes skeleton-loading {
+                        0% {
+                            background-position: 100% 50%;
+                        }
+                        100% {
+                            background-position: 0 50%;
+                        }
+                    }
+                    .skeleton-block {
+                        margin-bottom: 24px;
+                    }
+                    .skeleton-block .skeleton-row:nth-child(1) {
+                        width: 40%;
+                        height: 14px;
+                    }
+                    .skeleton-block .skeleton-row:nth-child(2) {
+                        width: 100%;
+                    }
+                    .skeleton-block .skeleton-row:nth-child(3) {
+                        width: 85%;
+                    }
 
-  /* ---------- Skeleton loader ---------- */
-  .skeleton-row {
-    height: 16px;
-    background: linear-gradient(90deg, #e0e0e0 25%, #ececec 37%, #e0e0e0 63%);
-    background-size: 400% 100%;
-    animation: skeleton-loading 1.4s ease infinite;
-    margin-bottom: 12px;
-    border-radius: 2px;
-  }
-  @keyframes skeleton-loading {
-    0% { background-position: 100% 50%; }
-    100% { background-position: 0 50%; }
-  }
-  .skeleton-block { margin-bottom: 24px; }
-  .skeleton-block .skeleton-row:nth-child(1) { width: 40%; height: 14px; }
-  .skeleton-block .skeleton-row:nth-child(2) { width: 100%; }
-  .skeleton-block .skeleton-row:nth-child(3) { width: 85%; }
+                    /* ---------- Result messages ---------- */
+                    .msg {
+                        padding: 16px;
+                        font-size: 14px;
+                        line-height: 20px;
+                        margin-bottom: 16px;
+                    }
+                    .msg-info {
+                        background: var(--cds-support-info-bg);
+                        color: var(--cds-support-info);
+                    }
+                    .msg-success {
+                        background: var(--cds-support-success-bg);
+                        color: var(--cds-support-success);
+                    }
+                    .msg-error {
+                        background: var(--cds-support-error-bg);
+                        color: var(--cds-support-error);
+                    }
+                    .msg strong {
+                        display: block;
+                        margin-bottom: 4px;
+                    }
 
-  /* ---------- Result messages ---------- */
-  .msg {
-    padding: 16px;
-    font-size: 14px;
-    line-height: 20px;
-    margin-bottom: 16px;
-  }
-  .msg-info { background: var(--cds-support-info-bg); color: var(--cds-support-info); }
-  .msg-success { background: var(--cds-support-success-bg); color: var(--cds-support-success); }
-  .msg-error { background: var(--cds-support-error-bg); color: var(--cds-support-error); }
-  .msg strong { display: block; margin-bottom: 4px; }
+                    /* ---------- Table (desktop) ---------- */
+                    .table-wrap {
+                        overflow-x: auto;
+                    }
+                    table.cds-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 14px;
+                    }
+                    table.cds-table th {
+                        text-align: left;
+                        background: #e0e0e0;
+                        color: var(--cds-text-primary);
+                        padding: 12px 16px;
+                        font-weight: 600;
+                        white-space: nowrap;
+                        border-bottom: 1px solid var(--cds-border-subtle);
+                    }
+                    table.cds-table td {
+                        padding: 12px 16px;
+                        border-bottom: 1px solid var(--cds-border-subtle);
+                        vertical-align: top;
+                        color: var(--cds-text-primary);
+                    }
+                    table.cds-table tr:hover td {
+                        background: var(--cds-layer-hover);
+                    }
+                    .assessee-badge {
+                        display: inline-block;
+                        background: var(--cds-support-success-bg);
+                        color: var(--cds-support-success);
+                        font-weight: 600;
+                        padding: 4px 8px;
+                        font-family: "IBM Plex Mono", monospace;
+                        font-size: 14px;
+                    }
 
-  /* ---------- Table (desktop) ---------- */
-  .table-wrap { overflow-x: auto; }
-  table.cds-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
-  table.cds-table th {
-    text-align: left;
-    background: #e0e0e0;
-    color: var(--cds-text-primary);
-    padding: 12px 16px;
-    font-weight: 600;
-    white-space: nowrap;
-    border-bottom: 1px solid var(--cds-border-subtle);
-  }
-  table.cds-table td {
-    padding: 12px 16px;
-    border-bottom: 1px solid var(--cds-border-subtle);
-    vertical-align: top;
-    color: var(--cds-text-primary);
-  }
-  table.cds-table tr:hover td { background: var(--cds-layer-hover); }
-  .assessee-badge {
-    display: inline-block;
-    background: var(--cds-support-success-bg);
-    color: var(--cds-support-success);
-    font-weight: 600;
-    padding: 4px 8px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 14px;
-  }
+                    /* ---------- Card view (mobile) ---------- */
+                    .card-list {
+                        display: none;
+                    }
+                    .result-card {
+                        background: var(--cds-layer);
+                        border: 1px solid var(--cds-border-subtle);
+                        padding: 16px;
+                        margin-bottom: 12px;
+                    }
+                    .result-card .an-row {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-bottom: 12px;
+                        padding-bottom: 12px;
+                        border-bottom: 1px solid var(--cds-border-subtle);
+                    }
+                    .result-card .an-row .an-label {
+                        font-size: 12px;
+                        color: var(--cds-text-secondary);
+                    }
+                    .result-card dl {
+                        margin: 0;
+                    }
+                    .result-card dt {
+                        font-size: 12px;
+                        color: var(--cds-text-secondary);
+                        margin-top: 8px;
+                    }
+                    .result-card dd {
+                        font-size: 14px;
+                        margin: 2px 0 0 0;
+                        color: var(--cds-text-primary);
+                    }
 
-  /* ---------- Card view (mobile) ---------- */
-  .card-list { display: none; }
-  .result-card {
-    background: var(--cds-layer);
-    border: 1px solid var(--cds-border-subtle);
-    padding: 16px;
-    margin-bottom: 12px;
-  }
-  .result-card .an-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--cds-border-subtle);
-  }
-  .result-card .an-row .an-label {
-    font-size: 12px;
-    color: var(--cds-text-secondary);
-  }
-  .result-card dl { margin: 0; }
-  .result-card dt {
-    font-size: 12px;
-    color: var(--cds-text-secondary);
-    margin-top: 8px;
-  }
-  .result-card dd {
-    font-size: 14px;
-    margin: 2px 0 0 0;
-    color: var(--cds-text-primary);
-  }
+                    @media (max-width: 672px) {
+                        .table-wrap {
+                            display: none;
+                        }
+                        .card-list {
+                            display: block;
+                        }
+                        .shell {
+                            padding: 12px;
+                        }
+                        .app-header h1 {
+                            font-size: 24px;
+                            line-height: 30px;
+                        }
+                        .tile {
+                            padding: 16px;
+                        }
+                        .recent-pill-main {
+                            max-width: 140px;
+                        }
+                    }
 
-  @media (max-width: 672px) {
-    .table-wrap { display: none; }
-    .card-list { display: block; }
-    .shell { padding: 12px; }
-    .app-header h1 { font-size: 24px; line-height: 30px; }
-    .tile { padding: 16px; }
-    .recent-pill-main { max-width: 140px; }
-  }
+                    footer.app-footer {
+                        text-align: center;
+                        font-size: 12px;
+                        color: var(--cds-text-secondary);
+                        padding: 24px 0;
+                    }
+                </style>
+            </head>
 
-  footer.app-footer {
-    text-align: center;
-    font-size: 12px;
-    color: var(--cds-text-secondary);
-    padding: 24px 0;
-  }
-</style>
-</head>
+            <body>
+                <div class="shell">
+                    <!-- Disclaimer -->
+                    <div class="disclaimer">
+                        <strong>⚠️ A quick note before you use this</strong>
+                        This tool was built voluntarily to help fellow Freshia flat owners quickly check whether their
+                        Property Tax Assessee Number has been generated — official responses are often slow and
+                        penalties can quietly add up while you wait. This is an independent, unofficial community tool
+                        and I take no responsibility for the accuracy of the data shown here. Please always cross-check
+                        with the relevant property tax authority before making any payment.
+                    </div>
 
-<body>
-<div class="shell">
+                    <!-- ============ GATE SCREEN ============ -->
+                    <div id="gate-screen">
+                        <div class="app-header">
+                            <h1>Quick check before you continue</h1>
+                            <p>Just to make sure this is being used by people from our own community.</p>
+                        </div>
 
-  <!-- Disclaimer -->
-  <div class="disclaimer">
-    <strong>⚠️ A quick note before you use this</strong>
-    This tool was built voluntarily to help fellow Freshia flat owners quickly check whether their
-    Property Tax Assessee Number has been generated — official responses are often slow and
-    penalties can quietly add up while you wait. This is an independent, unofficial community tool
-    and I take no responsibility for the accuracy of the data shown here. Please always cross-check
-    with the relevant property tax authority before making any payment.
-  </div>
+                        <div class="tile">
+                            <label class="cds-label" for="gate-input">How many blocks are there in Freshia?</label>
+                            <input type="text" id="gate-input" placeholder="Enter a number" autocomplete="off" />
+                            <div class="field-error" id="gate-error">That doesn't look right. Please try again.</div>
+                            <button class="cds-btn" id="gate-submit">Continue</button>
+                        </div>
+                    </div>
 
-  <!-- ============ GATE SCREEN ============ -->
-  <div id="gate-screen">
-    <div class="app-header">
-      <h1>Quick check before you continue</h1>
-      <p>Just to make sure this is being used by people from our own community.</p>
-    </div>
+                    <!-- ============ MAIN SEARCH SCREEN ============ -->
+                    <div id="main-screen" class="hidden">
+                        <div class="app-header">
+                            <h1>Find your Assessee Number</h1>
+                            <p>Search property tax records by owner name.</p>
+                        </div>
 
-    <div class="tile">
-      <label class="cds-label" for="gate-input">How many blocks are there in Freshia?</label>
-      <input type="text" id="gate-input" placeholder="Enter a number" autocomplete="off" />
-      <div class="field-error" id="gate-error">That doesn't look right. Please try again.</div>
-      <button class="cds-btn" id="gate-submit">Continue</button>
-    </div>
-  </div>
+                        <div class="tile">
+                            <label class="cds-label" for="owner-input">Owner Name</label>
+                            <input type="text" id="owner-input" placeholder="Enter owner name" autocomplete="off" />
+                            <div class="field-error" id="owner-error">Please enter at least 2 characters.</div>
+                            <button class="cds-btn" id="search-submit">Search</button>
+                        </div>
 
-  <!-- ============ MAIN SEARCH SCREEN ============ -->
-  <div id="main-screen" class="hidden">
-    <div class="app-header">
-      <h1>Find your Assessee Number</h1>
-      <p>Search property tax records by owner name.</p>
-    </div>
+                        <!-- Recent searches -->
+                        <div id="recent-section"></div>
 
-    <div class="tile">
-      <label class="cds-label" for="owner-input">Owner Name</label>
-      <input type="text" id="owner-input" placeholder="Enter owner name" autocomplete="off" />
-      <div class="field-error" id="owner-error">Please enter at least 2 characters.</div>
-      <button class="cds-btn" id="search-submit">Search</button>
-    </div>
+                        <!-- Loading skeleton -->
+                        <div id="loading-section" class="tile hidden">
+                            <div class="skeleton-block">
+                                <div class="skeleton-row"></div>
+                                <div class="skeleton-row"></div>
+                                <div class="skeleton-row"></div>
+                            </div>
+                            <div class="skeleton-block">
+                                <div class="skeleton-row"></div>
+                                <div class="skeleton-row"></div>
+                                <div class="skeleton-row"></div>
+                            </div>
+                        </div>
 
-    <!-- Recent searches -->
-    <div id="recent-section"></div>
+                        <!-- Results -->
+                        <div id="results-section"></div>
+                    </div>
 
-    <!-- Loading skeleton -->
-    <div id="loading-section" class="tile hidden">
-      <div class="skeleton-block">
-        <div class="skeleton-row"></div>
-        <div class="skeleton-row"></div>
-        <div class="skeleton-row"></div>
-      </div>
-      <div class="skeleton-block">
-        <div class="skeleton-row"></div>
-        <div class="skeleton-row"></div>
-        <div class="skeleton-row"></div>
-      </div>
-    </div>
+                    <footer class="app-footer">
+                        Built by a fellow Freshia resident, for Freshia residents · Independent, unofficial community
+                        tool
+                    </footer>
+                </div>
 
-    <!-- Results -->
-    <div id="results-section"></div>
-  </div>
+                <script>
+                    // ==========================================================================
+                    // CONFIG
+                    // ==========================================================================
+                    const API_URL = "https://7iaf7637tg.execute-api.us-east-1.amazonaws.com/default/proptax-search";
+                    const CORRECT_BLOCK_COUNT = "8";
+                    const RECENT_KEY = "freshiaRecentSearches";
+                    const RECENT_LIMIT = 15;
 
-  <footer class="app-footer">
-    Built by a fellow Freshia resident, for Freshia residents · Independent, unofficial community tool
-  </footer>
+                    // ==========================================================================
+                    // Gate logic (asked every time — no persistence)
+                    // ==========================================================================
+                    const gateScreen = document.getElementById("gate-screen");
+                    const mainScreen = document.getElementById("main-screen");
+                    const gateInput = document.getElementById("gate-input");
+                    const gateError = document.getElementById("gate-error");
+                    const gateSubmit = document.getElementById("gate-submit");
 
-</div>
+                    function checkGate() {
+                        const val = gateInput.value.trim();
+                        if (val === CORRECT_BLOCK_COUNT) {
+                            gateScreen.classList.add("hidden");
+                            mainScreen.classList.remove("hidden");
+                            gateError.classList.remove("show");
+                            renderRecentSearches();
+                        } else {
+                            gateError.classList.add("show");
+                            gateInput.classList.add("error");
+                        }
+                    }
 
-<script>
-  // ==========================================================================
-  // CONFIG
-  // ==========================================================================
-  const API_URL = "https://7iaf7637tg.execute-api.us-east-1.amazonaws.com/default/proptax-search";
-  const CORRECT_BLOCK_COUNT = "8";
-  const RECENT_KEY = "freshiaRecentSearches";
-  const RECENT_LIMIT = 15;
+                    gateSubmit.addEventListener("click", checkGate);
+                    gateInput.addEventListener("keydown", (e) => {
+                        if (e.key === "Enter") checkGate();
+                        gateInput.classList.remove("error");
+                    });
 
-  // ==========================================================================
-  // Gate logic (asked every time — no persistence)
-  // ==========================================================================
-  const gateScreen = document.getElementById("gate-screen");
-  const mainScreen = document.getElementById("main-screen");
-  const gateInput = document.getElementById("gate-input");
-  const gateError = document.getElementById("gate-error");
-  const gateSubmit = document.getElementById("gate-submit");
+                    // ==========================================================================
+                    // Recent searches (localStorage)
+                    // ==========================================================================
+                    function loadRecent() {
+                        try {
+                            return JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
+                        } catch {
+                            return [];
+                        }
+                    }
 
-  function checkGate() {
-    const val = gateInput.value.trim();
-    if (val === CORRECT_BLOCK_COUNT) {
-      gateScreen.classList.add("hidden");
-      mainScreen.classList.remove("hidden");
-      gateError.classList.remove("show");
-      renderRecentSearches();
-    } else {
-      gateError.classList.add("show");
-      gateInput.classList.add("error");
-    }
-  }
+                    function saveRecent(list) {
+                        localStorage.setItem(RECENT_KEY, JSON.stringify(list));
+                    }
 
-  gateSubmit.addEventListener("click", checkGate);
-  gateInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") checkGate();
-    gateInput.classList.remove("error");
-  });
+                    function addRecentSearch(name) {
+                        let list = loadRecent();
+                        const idx = list.findIndex((x) => x.name.toLowerCase() === name.toLowerCase());
+                        if (idx !== -1) {
+                            list[idx].ts = Date.now();
+                        } else {
+                            list.push({ name, pinned: false, ts: Date.now() });
+                        }
 
-  // ==========================================================================
-  // Recent searches (localStorage)
-  // ==========================================================================
-  function loadRecent() {
-    try {
-      return JSON.parse(localStorage.getItem(RECENT_KEY) || "[]");
-    } catch {
-      return [];
-    }
-  }
+                        // Trim oldest unpinned entries beyond the limit
+                        const pinned = list.filter((x) => x.pinned);
+                        let unpinned = list.filter((x) => !x.pinned).sort((a, b) => b.ts - a.ts);
+                        const maxUnpinned = Math.max(RECENT_LIMIT - pinned.length, 0);
+                        unpinned = unpinned.slice(0, maxUnpinned);
+                        list = [...pinned, ...unpinned];
 
-  function saveRecent(list) {
-    localStorage.setItem(RECENT_KEY, JSON.stringify(list));
-  }
+                        saveRecent(list);
+                        renderRecentSearches();
+                    }
 
-  function addRecentSearch(name) {
-    let list = loadRecent();
-    const idx = list.findIndex((x) => x.name.toLowerCase() === name.toLowerCase());
-    if (idx !== -1) {
-      list[idx].ts = Date.now();
-    } else {
-      list.push({ name, pinned: false, ts: Date.now() });
-    }
+                    function togglePin(name) {
+                        let list = loadRecent();
+                        const item = list.find((x) => x.name === name);
+                        if (item) item.pinned = !item.pinned;
+                        saveRecent(list);
+                        renderRecentSearches();
+                    }
 
-    // Trim oldest unpinned entries beyond the limit
-    const pinned = list.filter((x) => x.pinned);
-    let unpinned = list.filter((x) => !x.pinned).sort((a, b) => b.ts - a.ts);
-    const maxUnpinned = Math.max(RECENT_LIMIT - pinned.length, 0);
-    unpinned = unpinned.slice(0, maxUnpinned);
-    list = [...pinned, ...unpinned];
+                    function removeRecent(name) {
+                        let list = loadRecent();
+                        list = list.filter((x) => x.name !== name);
+                        saveRecent(list);
+                        renderRecentSearches();
+                    }
 
-    saveRecent(list);
-    renderRecentSearches();
-  }
+                    function renderRecentSearches() {
+                        let list = loadRecent();
+                        list.sort((a, b) => {
+                            if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
+                            return b.ts - a.ts;
+                        });
 
-  function togglePin(name) {
-    let list = loadRecent();
-    const item = list.find((x) => x.name === name);
-    if (item) item.pinned = !item.pinned;
-    saveRecent(list);
-    renderRecentSearches();
-  }
+                        const container = document.getElementById("recent-section");
+                        if (!list.length) {
+                            container.innerHTML = "";
+                            return;
+                        }
 
-  function removeRecent(name) {
-    let list = loadRecent();
-    list = list.filter((x) => x.name !== name);
-    saveRecent(list);
-    renderRecentSearches();
-  }
-
-  function renderRecentSearches() {
-    let list = loadRecent();
-    list.sort((a, b) => {
-      if (a.pinned !== b.pinned) return a.pinned ? -1 : 1;
-      return b.ts - a.ts;
-    });
-
-    const container = document.getElementById("recent-section");
-    if (!list.length) {
-      container.innerHTML = "";
-      return;
-    }
-
-    const pillsHtml = list.map(pillTemplate).join("");
-    container.innerHTML = `
+                        const pillsHtml = list.map(pillTemplate).join("");
+                        container.innerHTML = `
       <div class="recent-wrap">
         <span class="recent-tag">Recent</span>
         ${pillsHtml}
       </div>`;
-  }
+                    }
 
-  function pillTemplate(item) {
-    const pinnedClass = item.pinned ? "pinned" : "";
-    const safeName = escapeHtml(item.name);
-    return `
+                    function pillTemplate(item) {
+                        const pinnedClass = item.pinned ? "pinned" : "";
+                        const safeName = escapeHtml(item.name);
+                        return `
       <div class="recent-pill ${pinnedClass}">
         <span class="recent-pill-main" data-name="${safeName}">
           <svg class="pill-icon" viewBox="0 0 16 16" width="14" height="14" fill="currentColor">
@@ -553,90 +624,90 @@
           </svg>
         </button>
       </div>`;
-  }
+                    }
 
-  document.getElementById("recent-section").addEventListener("click", (e) => {
-    const mainEl = e.target.closest(".recent-pill-main");
-    if (mainEl) {
-      ownerInput.value = mainEl.dataset.name;
-      doSearch();
-      return;
-    }
-    const btn = e.target.closest(".pill-btn");
-    if (btn) {
-      const name = btn.dataset.name;
-      if (btn.dataset.action === "pin") togglePin(name);
-      else if (btn.dataset.action === "remove") removeRecent(name);
-    }
-  });
+                    document.getElementById("recent-section").addEventListener("click", (e) => {
+                        const mainEl = e.target.closest(".recent-pill-main");
+                        if (mainEl) {
+                            ownerInput.value = mainEl.dataset.name;
+                            doSearch();
+                            return;
+                        }
+                        const btn = e.target.closest(".pill-btn");
+                        if (btn) {
+                            const name = btn.dataset.name;
+                            if (btn.dataset.action === "pin") togglePin(name);
+                            else if (btn.dataset.action === "remove") removeRecent(name);
+                        }
+                    });
 
-  // ==========================================================================
-  // Search logic
-  // ==========================================================================
-  const ownerInput = document.getElementById("owner-input");
-  const ownerError = document.getElementById("owner-error");
-  const searchSubmit = document.getElementById("search-submit");
-  const loadingSection = document.getElementById("loading-section");
-  const resultsSection = document.getElementById("results-section");
+                    // ==========================================================================
+                    // Search logic
+                    // ==========================================================================
+                    const ownerInput = document.getElementById("owner-input");
+                    const ownerError = document.getElementById("owner-error");
+                    const searchSubmit = document.getElementById("search-submit");
+                    const loadingSection = document.getElementById("loading-section");
+                    const resultsSection = document.getElementById("results-section");
 
-  function escapeHtml(str) {
-    if (str === null || str === undefined) return "";
-    return String(str)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
-  }
+                    function escapeHtml(str) {
+                        if (str === null || str === undefined) return "";
+                        return String(str)
+                            .replace(/&/g, "&amp;")
+                            .replace(/</g, "&lt;")
+                            .replace(/>/g, "&gt;")
+                            .replace(/"/g, "&quot;")
+                            .replace(/'/g, "&#039;");
+                    }
 
-  async function doSearch() {
-    const ownerName = ownerInput.value.trim();
+                    async function doSearch() {
+                        const ownerName = ownerInput.value.trim();
 
-    if (ownerName.length < 2) {
-      ownerError.classList.add("show");
-      ownerInput.classList.add("error");
-      return;
-    }
-    ownerError.classList.remove("show");
-    ownerInput.classList.remove("error");
+                        if (ownerName.length < 2) {
+                            ownerError.classList.add("show");
+                            ownerInput.classList.add("error");
+                            return;
+                        }
+                        ownerError.classList.remove("show");
+                        ownerInput.classList.remove("error");
 
-    resultsSection.innerHTML = "";
-    loadingSection.classList.remove("hidden");
-    searchSubmit.disabled = true;
-    searchSubmit.textContent = "Searching...";
+                        resultsSection.innerHTML = "";
+                        loadingSection.classList.remove("hidden");
+                        searchSubmit.disabled = true;
+                        searchSubmit.textContent = "Searching...";
 
-    try {
-      const url = `${API_URL}?ownerName=${encodeURIComponent(ownerName)}`;
-      const resp = await fetch(url, { method: "GET" });
+                        try {
+                            const url = `${API_URL}?ownerName=${encodeURIComponent(ownerName)}`;
+                            const resp = await fetch(url, { method: "GET" });
 
-      if (!resp.ok) {
-        const errBody = await resp.json().catch(() => ({}));
-        throw new Error(errBody.error || `Request failed (HTTP ${resp.status})`);
-      }
+                            if (!resp.ok) {
+                                const errBody = await resp.json().catch(() => ({}));
+                                throw new Error(errBody.error || `Request failed (HTTP ${resp.status})`);
+                            }
 
-      const data = await resp.json();
-      addRecentSearch(ownerName);
-      renderResults(data.results || [], ownerName);
-    } catch (err) {
-      renderError(err.message || "Something went wrong. Please try again.");
-    } finally {
-      loadingSection.classList.add("hidden");
-      searchSubmit.disabled = false;
-      searchSubmit.textContent = "Search";
-    }
-  }
+                            const data = await resp.json();
+                            addRecentSearch(ownerName);
+                            renderResults(data.results || [], ownerName);
+                        } catch (err) {
+                            renderError(err.message || "Something went wrong. Please try again.");
+                        } finally {
+                            loadingSection.classList.add("hidden");
+                            searchSubmit.disabled = false;
+                            searchSubmit.textContent = "Search";
+                        }
+                    }
 
-  function renderError(message) {
-    resultsSection.innerHTML = `
+                    function renderError(message) {
+                        resultsSection.innerHTML = `
       <div class="msg msg-error">
         <strong>Search failed</strong>
         ${escapeHtml(message)} — please check your connection and try again.
       </div>`;
-  }
+                    }
 
-  function renderResults(records, searchedName) {
-    if (!records || records.length === 0) {
-      resultsSection.innerHTML = `
+                    function renderResults(records, searchedName) {
+                        if (!records || records.length === 0) {
+                            resultsSection.innerHTML = `
         <div class="msg msg-info">
           <strong>No record found for "${escapeHtml(searchedName)}"</strong>
           This is completely normal — it's commonly seen that generating a new Assessee Number
@@ -644,10 +715,10 @@
           searching again after some time. If you're not fully sure of the spelling, try
           searching with just part of the name instead of the full name.
         </div>`;
-      return;
-    }
+                            return;
+                        }
 
-    const successBanner = `
+                        const successBanner = `
       <div class="msg msg-success">
         <strong>Found ${records.length} matching record${records.length > 1 ? "s" : ""}</strong>
         If you see your Assessee Number below, please double-check all the details carefully
@@ -655,9 +726,9 @@
         making any payment. Please do not rely solely on this tool for payments.
       </div>`;
 
-    let tableRows = "";
-    records.forEach((r) => {
-      tableRows += `
+                        let tableRows = "";
+                        records.forEach((r) => {
+                            tableRows += `
         <tr>
           <td><span class="assessee-badge">${escapeHtml(r.AssesseeNumber || "—")}</span></td>
           <td>${escapeHtml(r.OwnerName)}</td>
@@ -665,9 +736,9 @@
           <td>${escapeHtml(r.HoldingNo)}</td>
           <td>${escapeHtml(r.FlatNo) || "—"}</td>
         </tr>`;
-    });
+                        });
 
-    const tableHtml = `
+                        const tableHtml = `
       <div class="tile">
         <div class="table-wrap">
           <table class="cds-table">
@@ -689,11 +760,11 @@
         </div>
       </div>`;
 
-    resultsSection.innerHTML = successBanner + tableHtml;
-  }
+                        resultsSection.innerHTML = successBanner + tableHtml;
+                    }
 
-  function cardTemplate(r) {
-    return `
+                    function cardTemplate(r) {
+                        return `
       <div class="result-card">
         <div class="an-row">
           <span class="an-label">Assessee No.</span>
@@ -710,20 +781,17 @@
           <dd>${escapeHtml(r.FlatNo) || "—"}</dd>
         </dl>
       </div>`;
-  }
+                    }
 
-  searchSubmit.addEventListener("click", doSearch);
-  ownerInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") doSearch();
-    ownerInput.classList.remove("error");
-  });
-</script>
-</body>
+                    searchSubmit.addEventListener("click", doSearch);
+                    ownerInput.addEventListener("keydown", (e) => {
+                        if (e.key === "Enter") doSearch();
+                        ownerInput.classList.remove("error");
+                    });
+                </script>
+            </body>
+        </html>
+
+        <script></script>
+    </body>
 </html>
-
-							<script>
-                            	
-							</script>
-                        </body>
-                        </html>
-                    
