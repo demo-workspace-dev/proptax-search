@@ -366,14 +366,17 @@
                     .copy-btn {
                         background: transparent;
                         border: none;
-                        padding: 5px;
+                        padding: 5px 6px;
                         display: inline-flex;
                         align-items: center;
-                        justify-content: center;
+                        gap: 4px;
                         cursor: pointer;
                         color: var(--cds-text-secondary);
                         border-radius: 4px;
                         flex-shrink: 0;
+                        font-family: "IBM Plex Sans", sans-serif;
+                        font-size: 12px;
+                        font-weight: 600;
                         transition:
                             background 70ms ease,
                             color 70ms ease;
@@ -384,6 +387,12 @@
                     }
                     .copy-btn.copied {
                         color: var(--cds-support-success);
+                    }
+                    .copy-btn .check-icon circle {
+                        fill: var(--cds-support-success);
+                    }
+                    .copy-btn .copy-label {
+                        white-space: nowrap;
                     }
 
                     /* ---------- Card view (mobile) ---------- */
@@ -442,6 +451,20 @@
                         .recent-pill-main {
                             max-width: 140px;
                         }
+                        /* iOS/Chrome auto-zoom on focus when input font-size is under 16px */
+                        input[type="text"] {
+                            font-size: 16px;
+                        }
+                    }
+
+                    /* Kill the double-tap-to-zoom delay/gesture on interactive elements */
+                    button,
+                    input,
+                    a,
+                    .pill-btn,
+                    .copy-btn,
+                    .recent-pill-main {
+                        touch-action: manipulation;
                     }
 
                     footer.app-footer {
@@ -807,9 +830,11 @@
             <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
           </svg>
-          <svg class="check-icon hidden" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="20 6 9 17 4 12"></polyline>
+          <svg class="check-icon hidden" viewBox="0 0 24 24" width="16" height="16">
+            <circle cx="12" cy="12" r="12"></circle>
+            <path d="M7 12.5l3.2 3.2L17 9" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
           </svg>
+          <span class="copy-label hidden">Copied</span>
         </button>
       </span>`;
                     }
@@ -846,8 +871,10 @@
                         const finish = () => {
                             const copyIcon = btn.querySelector(".copy-icon");
                             const checkIcon = btn.querySelector(".check-icon");
+                            const label = btn.querySelector(".copy-label");
                             copyIcon.classList.add("hidden");
                             checkIcon.classList.remove("hidden");
+                            label.classList.remove("hidden");
                             btn.classList.add("copied");
                             const prevTitle = btn.title;
                             btn.title = "Copied!";
@@ -855,6 +882,7 @@
                             btn._copyTimeout = setTimeout(() => {
                                 copyIcon.classList.remove("hidden");
                                 checkIcon.classList.add("hidden");
+                                label.classList.add("hidden");
                                 btn.classList.remove("copied");
                                 btn.title = prevTitle;
                             }, 1500);
